@@ -1,6 +1,6 @@
-//Konfiguracja Webpack
+/*webpack configuration*/
 module.exports = {
-    entry: ["whatwg-fetch", "./js/zadanie00.jsx"],
+    entry: ["whatwg-fetch", "./js/app.jsx"],
     output: {
         filename: "./js/out.js"
     },
@@ -17,7 +17,11 @@ module.exports = {
             loader: 'babel-loader',
             query: {
                 presets: ['es2015', 'stage-2', 'react']
-            }
-        }]
+              }
+            },
+            {
+              test: /\.scss$/,
+              loader: ['style-loader', 'css-loader', 'sass-loader']
+            }]
     }
 }
