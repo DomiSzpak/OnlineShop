@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "available": "Zero to One",
+      "description":"Peter Thiel",
+      "name": 2014,
+      "price": 4.03,
+      "product_images": {
+      }
+    },
+    {
+      "id": 1,
+      "available": "Zero to One",
+      "description":"Peter Thiel",
+      "name": 2014,
+      "price": 4.03
+    }
+  ]
+}

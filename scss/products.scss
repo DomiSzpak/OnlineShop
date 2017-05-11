@@ -1,0 +1,110 @@
+body {
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+// Main page
+.container {
+    //  background-image: url('https://cdn.pixabay.com/photo/2014/05/22/21/47/honey-dipper-351485_960_720.jpg');
+     background-position: center;
+     background-size: cover;
+     height: 90vh;
+     width: 100vw;
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+}
+
+.honey {
+  margin-bottom: 0;
+  z-index: 1;
+}
+
+.introduction {
+  font-size: 40px;
+  background-color: rgba(255,255,255,0.6);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+//Products
+.mini-photo {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-self: center;
+
+}
+
+.mini-photo-container {
+  align-items: center;
+}
+
+.product-summary {
+  background-color: rgba(255,255,255,0.6);
+  margin: 20px 0px;
+  min-width: 80vw;
+}
+
+.price {
+  color: gray;
+}
+
+.product-summary, .product-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.available {
+  color: green;
+  font-weight: bold;
+}
+
+.unavailable {
+  color: red;
+  font-weight: 600;
+}
+
+@media(min-width: 320px) {
+  .show-product-button {
+    display: flex;
+    align-self: center;
+  }
+  .container {
+    // margin: 150px 0;
+  }
+}
+
+@media(min-width: 961px) {
+  .name {
+    font-size: 24px;
+  }
+  .product-list {
+    flex-direction: row;
+  }
+  .show-product-button {
+    align-self: flex-end;
+  }
+}
+
+@media(min-width: 1025px) {
+  .product-list {
+    flex-direction: row;
+  }
+}
+
+.productSum {
+  font-size: 18px;
+  text-decoration: underline;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px;
+}
