@@ -7,46 +7,54 @@ body {
 
 // Main page
 .container {
-    //  background-image: url('https://cdn.pixabay.com/photo/2014/05/22/21/47/honey-dipper-351485_960_720.jpg');
+     background-image: none;
      background-position: center;
      background-size: cover;
-     height: 90vh;
+     background-color: #ffe6b9;
      width: 100vw;
      display: flex;
      justify-content: flex-end;
      align-items: center;
 }
 
-.honey {
-  margin-bottom: 0;
-  z-index: 1;
+.margin-nav {
+  margin: 0;
 }
 
 .introduction {
-  font-size: 40px;
   background-color: rgba(255,255,255,0.6);
   padding: 10px;
   border-radius: 5px;
 }
 
+.flex-grow {
+  display: flex;
+  flex-grow: 1;
+}
+
+.center-item {
+  display: flex;
+  justify-content: center;
+}
 
 //Products
 .mini-photo {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   display: flex;
-  align-self: center;
-
 }
 
-.mini-photo-container {
-  align-items: center;
-}
+// .mini-photo-container {
+//   align-items: center;
+// }
 
 .product-summary {
-  background-color: rgba(255,255,255,0.6);
   margin: 20px 0px;
   min-width: 80vw;
+}
+
+.fog {
+  background-color: rgba(255,255,255,0.6);
 }
 
 .price {
@@ -68,14 +76,27 @@ body {
   font-weight: 600;
 }
 
+.orders-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+textarea {
+  resize: none;
+}
+
+.pad-bottom {
+  padding-bottom: 200px;
+}
+
 @media(min-width: 320px) {
   .show-product-button {
     display: flex;
     align-self: center;
   }
-  .container {
-    // margin: 150px 0;
-  }
+  // .adjust-margin {
+  //   margin-top: 150px;
+  // }
 }
 
 @media(min-width: 961px) {
@@ -88,11 +109,18 @@ body {
   .show-product-button {
     align-self: flex-end;
   }
+  .container {
+       background-image: url('https://cdn.pixabay.com/photo/2014/05/22/21/47/honey-dipper-351485_960_720.jpg');
+       height: 90vh;
+  }
 }
 
 @media(min-width: 1025px) {
   .product-list {
     flex-direction: row;
+  }
+  .adjust-margin {
+    margin-top: 0;
   }
 }
 

@@ -3,7 +3,7 @@ import AddToCartForm from './AddToCartForm.jsx'
 
 class ProductInfo extends React.Component{
   render() {
-    return <div className='product-info'>
+    return <div className='product-info fog'>
     <div className='title'>
         <h2>{this.props.name}</h2>
         <span>({this.props.price} PLN)</span>

@@ -7,7 +7,7 @@ class AddToCartForm extends React.Component {
                onChange={this.props.qntHandleChange} /> z {this.props.quantity}
 
                <button type='button'
-                       className='btn btn-warning btn-lg'
+                       className='btn btn-default btn-lg'
                        onClick={this.props.btnHandleClick}>
                    Add to cart
                </button>

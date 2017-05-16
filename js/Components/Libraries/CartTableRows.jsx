@@ -7,7 +7,7 @@ class CartTableRows extends React.Component{
               <td className='mini-photo-container'>
                   <img className='mini-photo' src={this.props.photo} alt='photo'/>
               </td>
-              <td className='product-summary'>
+              <td className='product-summary flex-grow'>
               {/*to ja productlist lel*/}
                   <span className='name'>
                       {this.props.name}

@@ -1,32 +1,37 @@
 import React from 'react';
 import config from'../config.js';
-import CartTableRows from './Libraries/CartTableRows.jsx'
+import CartTableRows from './Libraries/CartTableRows.jsx';
+import { hashHistory } from 'react-router'
 
 class Cart extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       products: []
     }
   }
 
   componentWillMount() {
+    this.hasData = false
     fetch(config.apiUrl + '/getCart/' + localStorage.getItem('cart'))
     .then(response => response.json())
     .then(responseJson => {
-      console.log(responseJson.items);
-      this.setState({
-        products: responseJson.items
+      if(responseJson.items.length > 0) {
+        this.setState({
+          products: responseJson.items
       })
+      this.hasData = true
+      }
     })
   }
 
   componentDidMount() {
-    let hasData = false
-    if(this.state.products !== []) {
-      this.hasData = true
-    }
+   this.hasData = false
+   if(this.state.products !== []) {
+     this.hasData = true
+   }
   }
+
 
   countAllElements =()=> {
     let sum = 0
@@ -41,6 +46,9 @@ class Cart extends React.Component {
     fetch(config.apiUrl + '/cart/delete/' + event.target.dataset.id)
     .then(response => response.json())
     .then(responseJson => {
+      if (responseJson.items.length === 0){
+        this.hasData = false
+      }
       this.setState({
         products: responseJson.items
       })
@@ -48,10 +56,18 @@ class Cart extends React.Component {
   }
   }
 
+  handleOrderClick=()=>{
+    hashHistory.push('/cart/' + this.props.params.id + '/form')
+  }
+
+  handleBackToShoppingClick=()=>{
+    hashHistory.push('/products')
+  }
+
   render() {
-    return <div className='row'>
+    return <div className='row flex-grow'>
              <div className='col-md-12 col-sm-12'>
-                 <table className='table table-bordered table-hovered'>
+                 <table className='table table-bordered fog'>
                      <tbody>
                      { this.hasData ?
                           this.state.products.map(element => {
@@ -65,13 +81,29 @@ class Cart extends React.Component {
                                     productSum={element.quantity*element.product.price}
                                     deleteButton={this.handleDeleteClick}
                                     />
-                          }) : null
+                          }) : <tr className='center-item'><td><h2>Your cart is empty</h2></td></tr>
                      }
                      </tbody>
                  </table>
                  <span className='total'>
                      TOTAL: {this.countAllElements().toFixed(2)} PLN
                  </span>
+                 <br/>
+                 <div className='orders-buttons'>
+                 <button className='btn btn-default btn-lg'
+                         onClick={this.handleBackToShoppingClick}
+                         type='button'>
+                    Continue shopping
+                 </button>
+                 {
+                   this.state.products.length > 0 ?
+                 <button className='btn btn-default btn-lg checkout'
+                         onClick={this.handleOrderClick}
+                         type='button'>
+                    Checkout
+                 </button> : null
+               }
+                 </div>
              </div>
              </div>
   }

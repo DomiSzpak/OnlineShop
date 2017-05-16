@@ -4,11 +4,11 @@ import { Link } from 'react-router'
 class TableRows extends React.Component{
   render() {
     return <tr className='product-list'>
-              <td className='mini-photo-container'>
+              <td>
                   <img className='mini-photo' src={this.props.photo} alt='photo'/>
               </td>
+              <td>
               <td className='product-summary'>
-              {/*to ja productlist lel*/}
                   <span className='name'>
                       {this.props.name}
                   </span>
@@ -30,6 +30,7 @@ class TableRows extends React.Component{
                         className='btn btn-default show-product-button'>
                            Show
                         </Link>
+              </td>
               </td>
            </tr>
   }
